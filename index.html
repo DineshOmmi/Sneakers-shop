@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation&family=Fasthand&family=Kumbh+Sans:wght@400;700&family=M+PLUS+Rounded+1c:wght@800&family=Poppins:ital,wght@0,200;0,300;0,500;1,200;1,400;1,600&display=swap" rel="stylesheet">
+    <title>Sneakers Shop</title>
+</head>
+<body class="box-border">
+        <div class="fixed top-0 right-0 bottom-0 left-0 bg-[#000000c7] z-10 cartdisplay" id="modal_bg"></div>
+    <!-- Nav bar -->
+    <nav class="relative border-Grayish_blue md:h-28 md:p-6 md:border-b-[1px] md:mb-5 md:px-0 md:container md:mx-auto p-4">
+        <!-- flex container -->
+        <div class="flex items-center">
+
+            <!-- Hamberger Menu -->
+            <div class="relative w-[32px] h-[32px] mt-4" id="menu">
+                <img src="images/icon-menu.svg" class="w-[32px] absolute top-0 left-0 md:hidden " alt="menu">
+            </div>
+
+            <!-- mobile items -->
+            <div class="hidden" id="mobile_item">
+                <div class="absolute left-0 top-0 h-screen w-4/6 flex flex-col drop-shadow-md bg-White z-20">
+                    <div class="" id="close">
+                        <img src="images/icon-close-black.svg" alt="close" class="w-[20px] h-[20px] absolute top-9 left-5">
+                    </div>
+                    <div class="flex flex-col py-8 space-y-6 font-bold absolute top-[100px] left-5 text-[18px]">
+                        <a href="" class="active:border-b-4 hover:border-b-Orange">Collections</a>
+                        <a href="" class="active:border-b-4 hover:border-b-Orange">Men</a>
+                        <a href="" class="active:border-b-4 hover:border-b-Orange">Women</a>
+                        <a href="" class="active:border-b-4 hover:border-b-Orange">About</a>
+                        <a href="" class="active:border-b-4 hover:border-b-Orange">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <!-- logo -->
+            <div class="w-56 md:pl-0 pl-6">
+                <img src="images/logo.svg" alt="logo">
+            </div>
+            <div class="flex flex-row justify-between w-full items-center pl-[20px]">
+                <!-- menu items -->
+                <div class="hidden space-x-7 md:flex md:flex-row text-[18px] text-Dark_grayish_blue items-center">
+                    <div class="flex flex-col group">
+                        <a href="#" class="cursor-pointer hover:text-Black">Collections</a>
+                        <span class="w-[95px] h-2 absolute bottom-0 border-Orange border-b-4 hidden group-hover:block"></span>
+                    </div>
+                    <div class="flex flex-col group">
+                        <a href="#" class="cursor-pointer hover:text-Black ">Men</a>
+                        <span class="w-[45px] h-2 absolute bottom-0 border-Orange border-b-4 hidden group-hover:block"></span>
+                    </div>
+                    <div class="flex flex-col group">
+                        <a href="#" class="cursor-pointer hover:text-Black">Women</a>
+                        <span class="w-[70px] h-2 absolute bottom-0 border-Orange border-b-4 hidden group-hover:block"></span>
+                    </div>
+                    <div class="flex flex-col group">
+                        <a href="#" class="cursor-pointer hover:text-Black">About</a>
+                        <span class="w-[62px] h-2 absolute bottom-0 border-Orange border-b-4 hidden group-hover:block"></span>
+                    </div>
+                    <div class="flex flex-col group">
+                        <a href="#" class="cursor-pointer hover:text-Black">Contact</a>
+                        <span class="w-[70px] h-2 absolute bottom-0 border-Orange border-b-4 hidden group-hover:block"></span>
+                    </div>
+                </div>
+                <!-- cart and profile -->
+                <div class="flex flex-row space-x-6 items-center justify-end w-full">
+                    <div class="relative">
+                        <img src="images/icon-cart.svg" class="md:w-[29px] w-[22px] cursor-pointer" alt="cart" id="cartclick">
+                        <div class="absolute bg-Orange right-0 top-[-10px] w-5 h-5 text-center rounded-md text-White text-sm font-bold cartdisplay" id="cartvalue">0</div>
+                    </div>
+                    <div class=""><img src="images/image-avatar.png" class="max-sm:border-none w-[30px] h-[30px] border-2 rounded-full border-Orange md:w-[60px] md:h-[60px]" alt="avatar"></div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <!-- carting -->
+        <div class="h-[271px] w-[322px] bg-White shadow-[0px_5px_16px_0px_rgb(150,150,150)] rounded-xl absolute md:right-0 md:mt-4  right-5 mt-10 box-border z-30 cartdisplay" id="cartview">
+            <div class="w-full p-[22px] border-b-[2px] border-Grayish_blue">
+                <h1 class="text-sm font-bold text-Dark_grayish_blue w-full problem">Cart</h1>
+            </div>
+            <div class="relative" id="cartempty">
+                <h1 class="text-center absolute top-[90px] left-[90px] font-bold text-Dark_grayish_blue problem">You cart is empty</h1>
+            </div>
+            <div class="cartdisplay"id="cartfull">
+                <div class="flex flex-col m-[19px]">
+                    <div class="flex flex-row justify-between items-center mb-5 problem">
+                        <div class="w-[63px] h-[63px] problem"><img src="images/image-product-1-thumbnail.jpg" alt="" class="rounded-md"></div>
+                        <div class="flex flex-col">
+                            <div class="text-[13px] text-Dark_grayish_blue problem">Fall Limited Edition Sneakers.</div>
+                            <div class="text-[13px] text-Dark_grayish_blue problem">$125 x <span id="items">0</span>  <span class="text-Dark_grayish_blue font-bold">$</span><span class="text-Dark_grayish_blue font-bold" id="cost">250</span></div>
+                        </div>
+                        <div class="cursor-pointer">
+                            <img src="images/icon-delete.svg" alt="" class="w-[19px] h-[21px] problem" id="remove">
+                        </div>
+                    </div>
+                    <div class="w-[279px] h-[50px] bg-Orange text-center rounded-md p-3 text-[17px] font-bold text-White problem cursor-pointer hover:opacity-70"><a href="#">Checkout</a></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Images and Thumbnails --> 
+
+    <div class="flex flex-col md:flex-row md:container md:mx-auto box-border md:space-x-28">
+        <div class="flex flex-col">
+            <div class="md:w-[453px] md:h-[453px] w-auto h-auto md:m-16 md:mb-[20px] relative md:pointer-events-auto pointer-events-none transition duration-1000 cursor-pointer" id="change">
+                <img src="images/image-product-1.jpg" alt="product1" class="w-full h-full md:rounded-3xl" id="modalclick">
+            </div>
+            <!-- left arrow -->
+            <div class="absolute left-[16px] top-[30%] bg-White rounded-3xl p-2 px-3 z-10  md:hidden" id="left_arrow"><img src="images/icon-previous.svg" alt="previous"></div>
+            <!-- right arrow -->
+            <div class="absolute right-[16px] top-[30%] bg-White rounded-3xl p-2 px-3 z-10 md:hidden" id="right_arrow"><img src="images/icon-next.svg" alt="previous"></div>
+
+            <div class="md:flex flex-row space-x-[22px] ml-16 mt-[20px] hidden">
+                <div class="rounded-[15px] add">
+                    <img src="images/image-product-1-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[89px] rounded-xl hover:opacity-60 thumbnail transition duration-1000 " id="blur1">
+                </div>
+                <div class="rounded-[15px] add">                
+                    <img src="images/image-product-2-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[89px] rounded-xl hover:opacity-60 thumbnail transition duration-1000 " id="blur2">
+                </div>
+                <div class="rounded-[15px] add">
+                    <img src="images/image-product-3-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[89px] rounded-xl hover:opacity-60 thumbnail transition duration-1000 " id="blur3">
+                </div>
+                <div class="rounded-[15px] add">
+                    <img src="images/image-product-4-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[89px] rounded-xl hover:opacity-60 thumbnail transition duration-1000 " id="blur4">
+                </div>
+            </div>
+        </div>
+                <!-- sneakers cost and add to cart button -->
+        <div class="flex flex-col mt-[60px] md:pt-8 md:pl-6 md:ml-0 md:mr-0 ml-5 mr-5">
+            <div class="">
+                <h1 class="font-bold tracking-widest text-Orange">SNEAKER COMPANY</h1>
+            </div>
+            <div class="md:mt-[52px] mt-5 font-bold">
+                <h1 class="md:text-5xl text-3xl">Fall Limited Edition Sneakers</h1>
+            </div>
+            <div class="md:w-[426px] w-auto md:mt-[49px] mt-5 tracking-[0.004rem]">
+                <p class="text-base leading-relaxed">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+            </div>
+            <div class=" flex md:flex-col md:items-start flex-row items-end justify-between">
+                <div class="mt-[30px] font-bold flex flex-row items-center space-x-6">
+                    <h1 class="text-2xl">$125.00</h1>
+                    <h1 class="bg-[#EADBC8] text-Orange px-2 py-[0.05rem] rounded-md">50%</h1>
+                </div>
+                <div class="mt-[12px]">
+                    <h1 class="text-base font-bold line-through text-Grayish_blue">$250.00</h1>
+                </div>
+            </div>
+            <div class="mt-[45px] flex md:flex-row flex-col md:space-x-3 ">
+                <div class="flex flex-row items-center md:justify-around justify-between md:h-[50px] md:w-[150px] h-auto w-auto bg-[#eeeeee] rounded-md md:p-0 p-3 md:mb-0 mb-2">
+                    <div class="cursor-pointer md:ml-0 ml-3" id="decrement"><img src="images/icon-minus.svg" alt="minus"></div>
+                    <h1 class="font-bold text-xl" id="values">0</h1>
+                    <div class="cursor-pointer md:mr-0 mr-3" id="increment"><img src="images/icon-plus.svg" alt="plus"></div>
+                </div>
+                <div class="md:w-[293px] md:h-[50px] bg-Orange text-center block rounded-md cursor-pointer hover:opacity-70 h-auto w-auto md:p-0 p-3" id="add_to_cart">
+                    <h1 class="text-White md:pt-[13px] font-bold">Add to cart</h1>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+        <!-- central box -->
+
+        <div class="fixed top-2 left-[450px] z-50 cartdisplay" id="modal_box">
+            <div class="flex flex-col">
+                <div class="md:w-[505px] md:h-[505px] w-auto h-auto md:m-16 md:mb-[20px] relative" id="bgimage">
+                    <img src="images/image-product-1.jpg" alt="product1" class="w-full h-full md:rounded-3xl">
+                </div>
+                <!-- close btn -->
+                <div class="absolute top-8 right-20 cursor-pointer z-50" id="closing"><img src="images/icon-close.svg" alt="" class="h-[18px] w-[18px]"></div>
+                <!-- left arrow -->
+                <div class="absolute left-[45px] top-[40%] bg-White rounded-full p-2 px-3 z-10 cursor-pointer" id="leftmodal_arrow"><img src="images/icon-previous.svg" alt="previous"></div>
+                <!-- right arrow -->
+                <div class="absolute right-[45px] top-[40%] bg-White rounded-full p-2 px-3 z-10 cursor-pointer" id="rightmodal_arrow"><img src="images/icon-next.svg" alt="previous"></div>
+    
+                <div class="md:flex flex-row space-x-[22px] ml-24 mt-[16px] hidden">
+                    <div class="rounded-[15px] bg-White adds">
+                        <img src="images/image-product-1-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[97px] rounded-xl hover:opacity-60 thumbnails" id="blur1">
+                    </div>
+                    <div class="rounded-[15px] bg-White adds">                
+                        <img src="images/image-product-2-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[97px] rounded-xl hover:opacity-60 thumbnails" id="blur2">
+                    </div>
+                    <div class="rounded-[15px] bg-White adds">
+                        <img src="images/image-product-3-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[97px] rounded-xl hover:opacity-60 thumbnails" id="blur3">
+                    </div>
+                    <div class="rounded-[15px] bg-White adds">
+                        <img src="images/image-product-4-thumbnail.jpg" alt="" class="cursor-pointer w-[97px] h-[97px] rounded-xl hover:opacity-60 thumbnails" id="blur4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <br><br><br>
+    <div class="text-center md:p-10 p-5">
+        <!-- <h1 class="text-[15px]">Challenge by <span class="text-[#191D88]">Frontend Mentor</span>. Coded by <span class="text-[#191D88]">O.Dinesh</span>.</h1> -->
+        <h1 class="text-[15px]">Challenge by <a href="https://www.frontendmentor.io/challenges" class="text-[#191D88]">Frontend Mentor</a> Coded by <a href="https://github.com/" class="text-[#191D88]">O.Dinesh</a>.</h1>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
